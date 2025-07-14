@@ -43,12 +43,12 @@ ARROW="${SECONDARY}>${RESET}"
 
 # ASCII art logo from install.sh
 function print_logo() {
-  echo -e "${SECONDARY}  █████╗     ██╗    ██╗    ██████╗ ${RESET}"
-  echo -e "${SECONDARY}  ██╔══██╗    ██║    ██║    ██╔══██╗${RESET}"
-  echo -e "${SECONDARY}  ███████║    ██║ █╗ ██║    ██║  ██║${RESET}"
-  echo -e "${SECONDARY}  ██╔══██║    ██║███╗██║    ██║  ██║${RESET}"
-  echo -e "${SECONDARY}  ██║  ██║    ╚███╔███╔╝    ██████╔╝${RESET}"
-  echo -e "${SECONDARY}  ╚═╝  ╚═╝     ╚══╝╚══╝     ╚═════╝ ${RESET}"
+  echo -e "${SECONDARY}  █████╗  ██╗    ██╗ ██████╗  ██╗  ██╗  █████╗  ██╗   ██╗ ███████╗${RESET}"
+  echo -e "${SECONDARY}  ██╔══██╗ ██║    ██║ ██╔══██╗ ██║  ██║ ██╔══██╗ ██║   ██║ ██╔════╝${RESET}"
+  echo -e "${SECONDARY}  ███████║ ██║ █╗ ██║ ██║  ██║ ███████║ ███████║ ██║   ██║ ███████╗${RESET}"
+  echo -e "${SECONDARY}  ██╔══██║ ██║███╗██║ ██║  ██║ ██╔══██║ ██╔══██║ ██║   ██║ ╚════██║${RESET}"
+  echo -e "${SECONDARY}  ██║  ██║ ╚███╔███╔╝ ██████╔╝ ██║  ██║ ██║  ██║ ╚██████╔╝ ███████║${RESET}"
+  echo -e "${SECONDARY}  ╚═╝  ╚═╝  ╚══╝╚══╝  ╚═════╝  ╚═╝  ╚═╝ ╚═╝  ╚═╝  ╚═════╝  ╚══════╝${RESET}"
   echo -e "${PRIMARY}  ███╗   ███╗ █████╗ ███████╗███████╗████████╗██████╗  ██████╗ ${RESET}"
   echo -e "${PRIMARY}  ████╗ ████║██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗${RESET}"
   echo -e "${PRIMARY}  ██╔████╔██║███████║█████╗  ███████╗   ██║   ██████╔╝██║   ██║${RESET}"

@@ -46,12 +46,12 @@ const c = {
 
 // ASCII art logo from install.sh
 const logoArt = `
-  ${c.secondary('█████╗')}     ${c.secondary('██╗')}    ${c.secondary('██╗')}    ${c.secondary('██████╗')} 
-  ${c.secondary('██╔══██╗')}    ${c.secondary('██║')}    ${c.secondary('██║')}    ${c.secondary('██╔══██╗')}
-  ${c.secondary('███████║')}    ${c.secondary('██║')} ${c.secondary('█╗')} ${c.secondary('██║')}    ${c.secondary('██║')}  ${c.secondary('██║')}
-  ${c.secondary('██╔══██║')}    ${c.secondary('██║')}${c.secondary('███╗')}${c.secondary('██║')}    ${c.secondary('██║')}  ${c.secondary('██║')}
-  ${c.secondary('██║')}  ${c.secondary('██║')}    ${c.secondary('╚███╔███╔╝')}    ${c.secondary('██████╔╝')}
-  ${c.secondary('╚═╝')}  ${c.secondary('╚═╝')}     ${c.secondary('╚══╝╚══╝')}     ${c.secondary('╚═════╝')} 
+  ${c.secondary('█████╗')}  ${c.secondary('██╗')}    ${c.secondary('██╗')} ${c.secondary('██████╗')}  ${c.secondary('██╗')}  ${c.secondary('██╗')}  ${c.secondary('█████╗')}  ${c.secondary('██╗')}   ${c.secondary('██╗')} ${c.secondary('███████╗')}
+  ${c.secondary('██╔══██╗')} ${c.secondary('██║')}    ${c.secondary('██║')} ${c.secondary('██╔══██╗')} ${c.secondary('██║')}  ${c.secondary('██║')} ${c.secondary('██╔══██╗')} ${c.secondary('██║')}   ${c.secondary('██║')} ${c.secondary('██╔════╝')}
+  ${c.secondary('███████║')} ${c.secondary('██║')} ${c.secondary('█╗')} ${c.secondary('██║')} ${c.secondary('██║')}  ${c.secondary('██║')} ${c.secondary('███████║')} ${c.secondary('███████║')} ${c.secondary('██║')}   ${c.secondary('██║')} ${c.secondary('███████╗')}
+  ${c.secondary('██╔══██║')} ${c.secondary('██║')}${c.secondary('███╗')}${c.secondary('██║')} ${c.secondary('██║')}  ${c.secondary('██║')} ${c.secondary('██╔══██║')} ${c.secondary('██╔══██║')} ${c.secondary('██║')}   ${c.secondary('██║')} ${c.secondary('╚════██║')}
+  ${c.secondary('██║')}  ${c.secondary('██║')} ${c.secondary('╚███╔███╔╝')} ${c.secondary('██████╔╝')} ${c.secondary('██║')}  ${c.secondary('██║')} ${c.secondary('██║')}  ${c.secondary('██║')} ${c.secondary('╚██████╔╝')} ${c.secondary('███████║')}
+  ${c.secondary('╚═╝')}  ${c.secondary('╚═╝')}  ${c.secondary('╚══╝╚══╝')}  ${c.secondary('╚═════╝')}  ${c.secondary('╚═╝')}  ${c.secondary('╚═╝')} ${c.secondary('╚═╝')}  ${c.secondary('╚═╝')}  ${c.secondary('╚═════╝')}  ${c.secondary('╚══════╝')}
   ${c.primary('███╗   ███╗')}${c.primary('█████╗')} ${c.primary('███████╗')}${c.primary('███████╗')}${c.primary('████████╗')}${c.primary('██████╗')}  ${c.primary('██████╗')} 
   ${c.primary('████╗ ████║')}${c.primary('██╔══██╗')}${c.primary('██╔════╝')}${c.primary('██╔════╝')}${c.primary('╚══██╔══╝')}${c.primary('██╔══██╗')}${c.primary('██╔═══██╗')}
   ${c.primary('██╔████╔██║')}${c.primary('███████║')}${c.primary('█████╗')}  ${c.primary('███████╗')}   ${c.primary('██║')}   ${c.primary('██████╔╝')}${c.primary('██║')}   ${c.primary('██║')}
