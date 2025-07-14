@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Global PNPM Package Updater
+# AWDHAUS Maestro - Global PNPM Package Updater
 # Updates all globally installed PNPM packages
 
 set -e

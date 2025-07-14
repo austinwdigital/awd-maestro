@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - PNPM Updater
+# AWDHAUS Maestro - PNPM Updater
 # Updates PNPM to the latest version
 
 set -e

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Development Environment Health Check
+# AWDHAUS Maestro - Development Environment Health Check
 # Provides comprehensive information about the development environment
 
 set -e
@@ -159,4 +159,4 @@ fi
 
 print_success "Health check complete"
 echo
-echo -e "${SECONDARY}Run ${BOLD}awd-maestro${RESET} ${SECONDARY}to manage your environment${RESET}"
+echo -e "${SECONDARY}Run ${BOLD}awdhaus-maestro${RESET} ${SECONDARY}to manage your environment${RESET}"

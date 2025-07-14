@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - List NPM Global Packages
+# AWDHAUS Maestro - List NPM Global Packages
 
 set -e
 set -o pipefail

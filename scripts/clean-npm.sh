@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - NPM Cleaner
+# AWDHAUS Maestro - NPM Cleaner
 # Cleans NPM cache and temporary data
 
 set -e

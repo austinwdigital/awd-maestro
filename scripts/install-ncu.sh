@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - npm-check-updates Installer
+# AWDHAUS Maestro - npm-check-updates Installer
 # Installs or updates the npm-check-updates package
 
 set -e

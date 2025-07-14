@@ -1,12 +1,12 @@
-# Contributing to AWD Maestro
+# Contributing to AWDHAUS Maestro
 
 ```txt
-@AWD
+@AWDHAUS
 MAESTRO
 CREATIVE DEV ENVIRONMENT ORCHESTRATION
 ```
 
-Thank you for your interest in contributing to AWD Maestro! This document provides guidelines and workflows to help you contribute effectively.
+Thank you for your interest in contributing to AWDHAUS Maestro! This document provides guidelines and workflows to help you contribute effectively.
 
 ## ✦ Code of Conduct
 
@@ -14,7 +14,7 @@ We expect all contributors to follow our [Code of Conduct](CODE_OF_CONDUCT.md). 
 
 ## ✦ Ways to Contribute
 
-There are many ways to contribute to AWD Maestro:
+There are many ways to contribute to AWDHAUS Maestro:
 
 - **Report bugs** - Submit issues for any bugs you encounter
 - **Suggest features** - Propose new features or improvements
@@ -28,8 +28,8 @@ There are many ways to contribute to AWD Maestro:
 2. **Clone your fork**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/awd-maestro.git
-   cd awd-maestro
+   git clone https://github.com/austinwdigital/awdhaus-maestro.git
+   cd awdhaus-maestro
    ```
 
 3. **Install dependencies**
@@ -97,4 +97,4 @@ When contributing, please follow these security practices:
 
 ---
 
-Thank you for helping make AWD Maestro better! 🎨 ✨
+Thank you for helping make AWDHAUS Maestro better! 🎨 ✨

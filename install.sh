@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro Installation Script
+# AWDHAUS Maestro Installation Script
 # Creative Development Environment Orchestration
 # Version: 0.1.0
 
@@ -44,7 +44,7 @@ ARROW="${SECONDARY}→${RESET}"
 INFO="${BLUE}ⓘ${RESET}"
 
 # Installation paths
-INSTALL_DIR="$HOME/.awd-maestro"
+INSTALL_DIR="$HOME/.awdhaus-maestro"
 BIN_DIR="$INSTALL_DIR/bin"
 SCRIPTS_DIR="$INSTALL_DIR/scripts"
 
@@ -74,7 +74,7 @@ function print_header() {
   echo -e "${PRIMARY}║${RESET}   ${SECONDARY}CREATIVE DEVELOPMENT ENVIRONMENT ORCHESTRATION${RESET}            ${PRIMARY}║${RESET}"
   echo -e "${PRIMARY}╚$(printf '%0.s═' $(seq 1 65))╝${RESET}"
   echo
-  echo -e "${ARROW} ${WHITE}${BOLD}Installing AWD Maestro v0.1.0${RESET}"
+  echo -e "${ARROW} ${WHITE}${BOLD}Installing AWDHAUS Maestro v0.1.0${RESET}"
   echo
 }
 
@@ -203,7 +203,7 @@ print_step "Creating common.sh"
 cat > "$BIN_DIR/common.sh" << 'EOL'
 #!/bin/bash
 
-# AWD Maestro - Common utilities and styling
+# AWDHAUS Maestro - Common utilities and styling
 # Modern agency color palette
 
 # Rich color palette
@@ -371,8 +371,8 @@ npm link
 
 # Add alias to shell config if it doesn't exist
 if [ -f "$HOME/.zshrc" ]; then
-  if ! grep -q "alias awd-maestro=" "$HOME/.zshrc"; then
-    echo "alias awd-maestro='$BIN_DIR/maestro'" >> "$HOME/.zshrc"
+  if ! grep -q "alias awdhaus-maestro=" "$HOME/.zshrc"; then
+    echo "alias awdhaus-maestro='$BIN_DIR/maestro'" >> "$HOME/.zshrc"
     print_success "Added alias to .zshrc"
   else
     print_info "Alias already exists in .zshrc"
@@ -382,8 +382,8 @@ fi
 # Final message
 echo
 echo -e "${PRIMARY}${BOLD}╭── INSTALLATION COMPLETE ───────────────────────────────────────────╮${RESET}"
-echo -e "${PRIMARY}${BOLD}│${RESET} ${SUCCESS}AWD Maestro has been installed successfully!${RESET}                ${PRIMARY}${BOLD}│${RESET}"
-echo -e "${PRIMARY}${BOLD}│${RESET} ${WHITE}Run ${BOLD}awd-maestro${RESET} ${WHITE}to get started${RESET}                            ${PRIMARY}${BOLD}│${RESET}"
+echo -e "${PRIMARY}${BOLD}│${RESET} ${SUCCESS}AWDHAUS Maestro has been installed successfully!${RESET}                ${PRIMARY}${BOLD}│${RESET}"
+echo -e "${PRIMARY}${BOLD}│${RESET} ${WHITE}Run ${BOLD}awdhaus-maestro${RESET} ${WHITE}to get started${RESET}                            ${PRIMARY}${BOLD}│${RESET}"
 echo -e "${PRIMARY}${BOLD}╰───────────────────────────────────────────────────────────────────╯${RESET}"
 echo
 

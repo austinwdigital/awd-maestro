@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Global NPM Package Updater
+# AWDHAUS Maestro - Global NPM Package Updater
 # Updates all globally installed NPM packages
 
 set -e

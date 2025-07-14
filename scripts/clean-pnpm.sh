@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - PNPM Cleanup
+# AWDHAUS Maestro - PNPM Cleanup
 
 set -e
 set -o pipefail

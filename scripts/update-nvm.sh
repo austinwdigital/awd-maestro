@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - NVM Updater
+# AWDHAUS Maestro - NVM Updater
 # Updates Node Version Manager to the latest version
 
 set -e

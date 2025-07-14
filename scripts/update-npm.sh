@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - NPM Updater
+# AWDHAUS Maestro - NPM Updater
 # Updates NPM to the latest version
 
 set -e

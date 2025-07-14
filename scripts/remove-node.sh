@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Node.js Version Remover
+# AWDHAUS Maestro - Node.js Version Remover
 # Allows removing installed Node.js versions
 
 set -e

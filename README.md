@@ -1,7 +1,7 @@
-# AWD Maestro
+# AWDHAUS Maestro
 
 ```txt
-@AWD
+@AWDHAUS
 MAESTRO
 CREATIVE DEV ENVIRONMENT ORCHESTRATION
 ```
@@ -12,7 +12,7 @@ CREATIVE DEV ENVIRONMENT ORCHESTRATION
 
 ## ✦ Overview
 
-**AWD Maestro** is a toolkit designed to help you manage your development environment, and keep tools up to date. It's a single command tool that will help you install, update, and remove tools, and keep your environment clean and optimized. Tools included are: Node.js, PNPM, NPM, NVM, NCU and global installs include: Typescript, ESLint, Prettier, Vitest, Vite, Create Next App, and Serve. This is a work in progress, and will be updated as we add more tools and features.
+**AWDHAUS Maestro** is a toolkit designed to help you manage your development environment, and keep tools up to date. It's a single command tool that will help you install, update, and remove tools, and keep your environment clean and optimized. Tools included are: Node.js, PNPM, NPM, NVM, NCU and global installs include: Typescript, ESLint, Prettier, Vitest, Vite, Create Next App, and Serve. This is a work in progress, and will be updated as we add more tools and features.
 
 ## ✦ Features
 
@@ -30,23 +30,23 @@ CREATIVE DEV ENVIRONMENT ORCHESTRATION
 
 ```bash
 # Install globally
-npm install -g @awd/maestro
+npm install -g @awdhaus/maestro
 
 # Or run with npx
-npx @awd/maestro@latest
+npx @awdhaus/maestro@latest
 ```
 
 After installation, simply run:
 
 ```bash
-awd-maestro
+awdhaus-maestro
 ```
 
 This launches the interactive CLI interface where you can manage your environment.
 
 ## ✦ What's Included
 
-AWD Maestro manages these essential creative development tools:
+AWDHAUS Maestro manages these essential creative development tools:
 
 - **Node.js** (via NVM)
 - **PNPM** (via Corepack)
@@ -62,9 +62,9 @@ AWD Maestro manages these essential creative development tools:
 
 ## ✦ Core Utilities
 
-![AWD Maestro Interface](https://via.placeholder.com/800x400/C8FF00/171717?text=%40AWD%0AMAESTRO%0ACREATIVE+DEV+ENVIRONMENT+ORCHESTRATION)
+![AWDHAUS Maestro Interface](https://via.placeholder.com/800x400/C8FF00/171717?text=%40AWDHAUS%0AMAESTRO%0ACREATIVE+DEV+ENVIRONMENT+ORCHESTRATION)
 
-AWD Maestro provides these utilities to maintain your development environment:
+AWDHAUS Maestro provides these utilities to maintain your development environment:
 
 - **Maestro Concierge** - Comprehensive system maintenance in one command
 - **Node.js Management** - Install, switch, and remove Node.js versions
@@ -74,7 +74,7 @@ AWD Maestro provides these utilities to maintain your development environment:
 
 ## ✦ Security Features
 
-AWD Maestro is built with security in mind:
+AWDHAUS Maestro is built with security in mind:
 
 - Secure shell script practices with proper error handling
 - TLS verification for all network operations
@@ -86,13 +86,13 @@ AWD Maestro is built with security in mind:
 
 To uninstall:
 
-1. Run `awd-maestro` and select the uninstall option
+1. Run `awdhaus-maestro` and select the uninstall option
 2. Follow the prompts
 
 Or uninstall globally:
 
 ```bash
-npm uninstall -g @awd/maestro
+npm uninstall -g @awdhaus/maestro
 ```
 
 ## ✦ Contributing

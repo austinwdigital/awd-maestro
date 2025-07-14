@@ -3,8 +3,8 @@
 'use strict';
 
 /**
- * AWD Maestro - Creative Development Environment Orchestration
- * @package @awd/maestro
+ * AWDHAUS Maestro - Creative Development Environment Orchestration
+ * @package @awdhaus/maestro
  */
 
 import { execSync } from 'child_process';
@@ -253,7 +253,7 @@ async function showMenu() {
         new inquirer.Separator(createDivider()),
 
         {
-          name: `${c.error.bold('Uninstall AWD Maestro')}`,
+          name: `${c.error.bold('Uninstall AWDHAUS Maestro')}`,
           value: 'uninstall',
           short: 'Uninstall'
         },
@@ -351,7 +351,7 @@ async function handleAction(action) {
       shouldContinue = await runScript('scripts/uninstall.sh', 'Preparing uninstall...');
       break;
     case 'exit':
-      console.log(`\n${c.secondary('Thank you for using')} ${c.primary.bold('AWD Maestro')}\n`);
+      console.log(`\n${c.secondary('Thank you for using')} ${c.primary.bold('AWDHAUS Maestro')}\n`);
       process.exit(0);
   }
 

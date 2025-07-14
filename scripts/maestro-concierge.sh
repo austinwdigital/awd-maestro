@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Maestro Concierge
+# AWDHAUS Maestro - Maestro Concierge
 # Comprehensive system maintenance and optimization
 
 set -e

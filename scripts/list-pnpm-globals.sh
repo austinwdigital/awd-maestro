@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - List PNPM Global Packages
+# AWDHAUS Maestro - List PNPM Global Packages
 
 set -e
 set -o pipefail

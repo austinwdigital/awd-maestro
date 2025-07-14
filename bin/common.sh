@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Common utilities and styling
+# AWDHAUS Maestro - Common utilities and styling
 # Modern agency color palette
 
 set -e

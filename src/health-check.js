@@ -3,9 +3,9 @@
 'use strict';
 
 /**
- * AWD Maestro - Health Check Module
+ * AWDHAUS Maestro - Health Check Module
  * Provides a comprehensive health check of the developer environment
- * @package @awd/maestro
+ * @package @awdhaus/maestro
  */
 
 import { execSync } from 'child_process';
@@ -183,7 +183,7 @@ async function getHealthIssues() {
  * Run the health check
  */
 export async function runHealthCheck() {
-  console.log(`\n${primary.bold('AWD MAESTRO HEALTH CHECK')}\n`);
+  console.log(`\n${primary.bold('AWDHAUS MAESTRO HEALTH CHECK')}\n`);
 
   try {
     await getSystemInfo();

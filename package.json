@@ -1,5 +1,5 @@
 {
-  "name": "@awd/maestro",
+  "name": "@awdhaus/maestro",
   "version": "0.1.0",
   "description": "Creative development environment orchestration by AustinWDigital",
   "main": "bin/maestro",
@@ -11,7 +11,7 @@
     "security": "npm audit"
   },
   "bin": {
-    "awd-maestro": "bin/maestro"
+    "awdhaus-maestro": "bin/maestro"
   },
   "engines": {
     "node": ">=18"
@@ -28,7 +28,7 @@
     "agency",
     "design",
     "austinwdigital",
-    "awd",
+    "awdhaus",
     "maestro",
     "orchestration"
   ],
@@ -39,12 +39,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/austinwdigital/awd-maestro.git"
+    "url": "git+https://github.com/austinwdigital/awdhaus-maestro.git"
   },
   "bugs": {
-    "url": "https://github.com/austinwdigital/awd-maestro/issues"
+    "url": "https://github.com/austinwdigital/awdhaus-maestro/issues"
   },
-  "homepage": "https://github.com/austinwdigital/awd-maestro#readme",
+  "homepage": "https://github.com/austinwdigital/awdhaus-maestro#readme",
   "dependencies": {
     "chalk": "^5.3.0",
     "cli-spinners": "^2.9.2",

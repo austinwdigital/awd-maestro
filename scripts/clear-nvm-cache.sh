@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - NVM/NPM Cache Cleanup
+# AWDHAUS Maestro - NVM/NPM Cache Cleanup
 
 set -e
 set -o pipefail

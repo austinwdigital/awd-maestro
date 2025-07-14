@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Node.js Version Installer
+# AWDHAUS Maestro - Node.js Version Installer
 # Allows installing new Node.js versions
 
 set -e

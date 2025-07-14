@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWD Maestro - Node.js Version Switcher
+# AWDHAUS Maestro - Node.js Version Switcher
 # Allows switching between installed Node.js versions
 
 set -e
