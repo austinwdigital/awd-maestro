@@ -1,0 +1,58 @@
+{
+  "name": "@awd/maestro",
+  "version": "0.1.0",
+  "description": "Creative development environment orchestration by AustinWDigital",
+  "main": "bin/maestro",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint .",
+    "dev": "node --watch bin/maestro",
+    "security": "npm audit"
+  },
+  "bin": {
+    "awd-maestro": "bin/maestro"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "creative",
+    "developer",
+    "toolkit",
+    "cli",
+    "node",
+    "pnpm",
+    "nvm",
+    "web-development",
+    "agency",
+    "design",
+    "austinwdigital",
+    "awd",
+    "maestro",
+    "orchestration"
+  ],
+  "author": {
+    "name": "AustinWDigital",
+    "url": "https://austinwdigital.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinwdigital/awd-maestro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/austinwdigital/awd-maestro/issues"
+  },
+  "homepage": "https://github.com/austinwdigital/awd-maestro#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-spinners": "^2.9.2",
+    "inquirer": "^9.2.12",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "vitest": "^3.2.4"
+  }
+}

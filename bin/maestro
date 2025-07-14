@@ -1,0 +1,367 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/**
+ * AWD Maestro - Creative Development Environment Orchestration
+ * @package @awd/maestro
+ */
+
+import { execSync } from 'child_process';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import chalk from 'chalk';
+import inquirer from 'inquirer';
+import ora from 'ora';
+
+// Get directory name in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const BASE_DIR = path.resolve(__dirname, '..');
+
+// Define modern agency color palette
+const colors = {
+  primary: '#C8FF00',    // Lime
+  secondary: '#767676',  // Gray
+  white: '#FFFFFF',      // White
+  dark: '#171717',       // Near black
+  light: '#FAFAFA',      // Off white
+  success: '#10B981',    // Green
+  warning: '#F59E0B',    // Amber
+  error: '#EF4444',      // Red
+};
+
+// Styled chalk functions
+const c = {
+  primary: chalk.hex(colors.primary),
+  secondary: chalk.hex(colors.secondary),
+  white: chalk.hex(colors.white),
+  dark: chalk.hex(colors.dark),
+  light: chalk.hex(colors.light),
+  success: chalk.hex(colors.success),
+  warning: chalk.hex(colors.warning),
+  error: chalk.hex(colors.error),
+  bold: chalk.bold
+};
+
+// ASCII art logo from install.sh
+const logoArt = `
+  ${c.secondary('█████╗')}     ${c.secondary('██╗')}    ${c.secondary('██╗')}    ${c.secondary('██████╗')} 
+  ${c.secondary('██╔══██╗')}    ${c.secondary('██║')}    ${c.secondary('██║')}    ${c.secondary('██╔══██╗')}
+  ${c.secondary('███████║')}    ${c.secondary('██║')} ${c.secondary('█╗')} ${c.secondary('██║')}    ${c.secondary('██║')}  ${c.secondary('██║')}
+  ${c.secondary('██╔══██║')}    ${c.secondary('██║')}${c.secondary('███╗')}${c.secondary('██║')}    ${c.secondary('██║')}  ${c.secondary('██║')}
+  ${c.secondary('██║')}  ${c.secondary('██║')}    ${c.secondary('╚███╔███╔╝')}    ${c.secondary('██████╔╝')}
+  ${c.secondary('╚═╝')}  ${c.secondary('╚═╝')}     ${c.secondary('╚══╝╚══╝')}     ${c.secondary('╚═════╝')} 
+  ${c.primary('███╗   ███╗')}${c.primary('█████╗')} ${c.primary('███████╗')}${c.primary('███████╗')}${c.primary('████████╗')}${c.primary('██████╗')}  ${c.primary('██████╗')} 
+  ${c.primary('████╗ ████║')}${c.primary('██╔══██╗')}${c.primary('██╔════╝')}${c.primary('██╔════╝')}${c.primary('╚══██╔══╝')}${c.primary('██╔══██╗')}${c.primary('██╔═══██╗')}
+  ${c.primary('██╔████╔██║')}${c.primary('███████║')}${c.primary('█████╗')}  ${c.primary('███████╗')}   ${c.primary('██║')}   ${c.primary('██████╔╝')}${c.primary('██║')}   ${c.primary('██║')}
+  ${c.primary('██║╚██╔╝██║')}${c.primary('██╔══██║')}${c.primary('██╔══╝')}  ${c.primary('╚════██║')}   ${c.primary('██║')}   ${c.primary('██╔══██╗')}${c.primary('██║')}   ${c.primary('██║')}
+  ${c.primary('██║')} ${c.primary('╚═╝')} ${c.primary('██║')}${c.primary('██║')}  ${c.primary('██║')}${c.primary('███████╗')}${c.primary('███████║')}   ${c.primary('██║')}   ${c.primary('██║')}  ${c.primary('██║')}${c.primary('╚██████╔╝')}
+  ${c.primary('╚═╝')}     ${c.primary('╚═╝')}${c.primary('╚═╝')}  ${c.primary('╚═╝')}${c.primary('╚══════╝')}${c.primary('╚══════╝')}   ${c.primary('╚═╝')}   ${c.primary('╚═╝')}  ${c.primary('╚═╝')} ${c.primary('╚═════╝')}
+`;
+
+// Banner styling
+const banner = `
+${c.primary('╭' + '═'.repeat(65) + '╮')}
+${c.primary('│')}                                                                 ${c.primary('│')}
+${logoArt}
+${c.primary('│')}                                                                 ${c.primary('│')}
+${c.primary('│')}  ${c.secondary('CREATIVE DEVELOPMENT ENVIRONMENT ORCHESTRATION')}                 ${c.primary('│')}
+${c.primary('╰' + '═'.repeat(65) + '╯')}
+`;
+
+/**
+ * Clear screen and display banner
+ */
+function showBanner() {
+  console.clear();
+  console.log(banner);
+}
+
+/**
+ * Run a script and display output with spinner
+ */
+async function runScript(scriptPath, message) {
+  // Special handling for health-check script
+  if (scriptPath === 'scripts/dev-health-check.sh') {
+    try {
+      execSync(path.join(BASE_DIR, scriptPath), {
+        stdio: 'inherit',
+        timeout: 10000 // 10 second timeout
+      });
+    } catch (error) {
+      console.error(c.error(`Error: ${error.message}`));
+    }
+    return promptContinue();
+  }
+
+  // Normal handling for other scripts
+  const spinner = ora({
+    text: message,
+    spinner: 'dots',
+    color: 'green'
+  }).start();
+
+  try {
+    // Add timeout to prevent hanging scripts
+    execSync(path.join(BASE_DIR, scriptPath), {
+      stdio: ['inherit', 'pipe', 'pipe'],
+      timeout: 60000 // 60 second timeout
+    });
+    spinner.succeed(`Operation completed`);
+  } catch (error) {
+    spinner.fail(`Operation failed`);
+    if (error.signal === 'SIGTERM') {
+      console.error(c.error(`Error: Operation timed out after 60 seconds`));
+    } else {
+      console.error(c.error(`Error: ${error.message}`));
+    }
+  }
+
+  return promptContinue();
+}
+
+/**
+ * Prompt user to continue
+ */
+async function promptContinue() {
+  const { shouldContinue } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'shouldContinue',
+      message: 'Return to main menu?',
+      default: true
+    }
+  ]);
+
+  return shouldContinue;
+}
+
+/**
+ * Create a styled divider
+ */
+function createDivider() {
+  return c.secondary('─'.repeat(67));
+}
+
+/**
+ * Main menu
+ */
+async function showMenu() {
+  showBanner();
+
+  const { action } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'action',
+      message: 'What would you like to do?',
+      loop: false,
+      pageSize: 15,
+      choices: [
+        {
+          name: `${c.primary.bold('MAESTRO CONCIERGE')} - ${c.secondary('Comprehensive system maintenance')}`,
+          value: 'maestro-concierge',
+          short: 'Maestro Concierge'
+        },
+        new inquirer.Separator(createDivider()),
+
+        {
+          name: `${c.white.bold('Switch Node.js version')}`,
+          value: 'switch-node',
+          short: 'Switch Node.js'
+        },
+        {
+          name: `${c.white.bold('Update NVM')}`,
+          value: 'update-nvm',
+          short: 'Update NVM'
+        },
+        {
+          name: `${c.white.bold('Remove Node.js version')}`,
+          value: 'remove-node',
+          short: 'Remove Node.js'
+        },
+        {
+          name: `${c.white.bold('Install Node.js version')}`,
+          value: 'install-node',
+          short: 'Install Node.js'
+        },
+
+        new inquirer.Separator(createDivider()),
+
+        {
+          name: `${c.white.bold('Update NPM')}`,
+          value: 'update-npm',
+          short: 'Update NPM'
+        },
+        {
+          name: `${c.white.bold('Clean old NPM data')}`,
+          value: 'clean-npm',
+          short: 'Clean NPM'
+        },
+        {
+          name: `${c.white.bold('Update global NPM packages')}`,
+          value: 'update-npm-globals',
+          short: 'Update NPM Globals'
+        },
+        {
+          name: `${c.white.bold('List global NPM packages')}`,
+          value: 'list-npm',
+          short: 'NPM Globals'
+        },
+        {
+          name: `${c.white.bold('Install/Update npm-check-updates')}`,
+          value: 'install-ncu',
+          short: 'Install NCU'
+        },
+
+        new inquirer.Separator(createDivider()),
+
+        {
+          name: `${c.white.bold('Update PNPM')}`,
+          value: 'update-pnpm',
+          short: 'Update PNPM'
+        },
+        {
+          name: `${c.white.bold('Clean old PNPM data')}`,
+          value: 'clean-pnpm',
+          short: 'Clean PNPM'
+        },
+        {
+          name: `${c.white.bold('Update global PNPM packages')}`,
+          value: 'update-pnpm-globals',
+          short: 'Update PNPM Globals'
+        },
+        {
+          name: `${c.white.bold('List global PNPM packages')}`,
+          value: 'list-pnpm',
+          short: 'PNPM Globals'
+        },
+
+        new inquirer.Separator(createDivider()),
+
+        {
+          name: `${c.white.bold('Development environment health check')}`,
+          value: 'health-check',
+          short: 'Health Check'
+        },
+        {
+          name: `${c.white.bold('Clear NVM/NPM cache')}`,
+          value: 'clear-nvm',
+          short: 'Clear Cache'
+        },
+
+        new inquirer.Separator(createDivider()),
+
+        {
+          name: `${c.error.bold('Uninstall AWD Maestro')}`,
+          value: 'uninstall',
+          short: 'Uninstall'
+        },
+
+        new inquirer.Separator(createDivider()),
+
+        {
+          name: `${c.white.bold('Exit')}`,
+          value: 'exit',
+          short: 'Exit'
+        }
+      ]
+    }
+  ]);
+
+  await handleAction(action);
+}
+
+/**
+ * Handle selected menu action
+ */
+async function handleAction(action) {
+  let shouldContinue = true;
+
+  switch (action) {
+    case 'maestro-concierge':
+      shouldContinue = await runScript('scripts/maestro-concierge.sh', 'Running comprehensive system maintenance...');
+      break;
+    case 'switch-node':
+      // For Node.js version switching, we need to use inherit for all stdio
+      try {
+        execSync(path.join(BASE_DIR, 'scripts/switch-node.sh'), {
+          stdio: 'inherit',
+          timeout: 120000 // 2 minute timeout for user interaction
+        });
+        shouldContinue = await promptContinue();
+      } catch (error) {
+        console.error(c.error(`Error: ${error.message}`));
+        shouldContinue = await promptContinue();
+      }
+      break;
+    case 'update-nvm':
+      shouldContinue = await runScript('scripts/update-nvm.sh', 'Updating NVM...');
+      break;
+    case 'remove-node':
+      // For Node.js version removal, we need to use inherit for all stdio
+      try {
+        execSync(path.join(BASE_DIR, 'scripts/remove-node.sh'), {
+          stdio: 'inherit',
+          timeout: 120000 // 2 minute timeout for user interaction
+        });
+        shouldContinue = await promptContinue();
+      } catch (error) {
+        console.error(c.error(`Error: ${error.message}`));
+        shouldContinue = await promptContinue();
+      }
+      break;
+    case 'install-node':
+      shouldContinue = await runScript('scripts/install-node.sh', 'Preparing Node.js version installer...');
+      break;
+    case 'update-npm':
+      shouldContinue = await runScript('scripts/update-npm.sh', 'Updating NPM...');
+      break;
+    case 'clean-npm':
+      shouldContinue = await runScript('scripts/clean-npm.sh', 'Cleaning NPM data...');
+      break;
+    case 'update-npm-globals':
+      shouldContinue = await runScript('scripts/update-npm-globals.sh', 'Updating global NPM packages...');
+      break;
+    case 'list-npm':
+      shouldContinue = await runScript('scripts/list-npm-globals.sh', 'Getting NPM global packages...');
+      break;
+    case 'install-ncu':
+      shouldContinue = await runScript('scripts/install-ncu.sh', 'Installing npm-check-updates...');
+      break;
+    case 'update-pnpm':
+      shouldContinue = await runScript('scripts/update-pnpm.sh', 'Updating PNPM...');
+      break;
+    case 'clean-pnpm':
+      shouldContinue = await runScript('scripts/clean-pnpm.sh', 'Cleaning PNPM environment...');
+      break;
+    case 'update-pnpm-globals':
+      shouldContinue = await runScript('scripts/update-pnpm-globals.sh', 'Updating global PNPM packages...');
+      break;
+    case 'list-pnpm':
+      shouldContinue = await runScript('scripts/list-pnpm-globals.sh', 'Getting PNPM global packages...');
+      break;
+    case 'health-check':
+      shouldContinue = await runScript('scripts/dev-health-check.sh', 'Running health check...');
+      break;
+    case 'clear-nvm':
+      shouldContinue = await runScript('scripts/clear-nvm-cache.sh', 'Clearing NVM/NPM cache...');
+      break;
+    case 'uninstall':
+      shouldContinue = await runScript('scripts/uninstall.sh', 'Preparing uninstall...');
+      break;
+    case 'exit':
+      console.log(`\n${c.secondary('Thank you for using')} ${c.primary.bold('AWD Maestro')}\n`);
+      process.exit(0);
+  }
+
+  if (shouldContinue) {
+    await showMenu();
+  }
+}
+
+// Start the application
+showMenu().catch(error => {
+  console.error(c.error(`Unexpected error: ${error.message}`));
+  process.exit(1);
+}); 
